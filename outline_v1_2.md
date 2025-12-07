@@ -1,7 +1,7 @@
 # Ship Vibe-Coded Real Applications
 ## Master NextJS, Supabase, and AI-Native Development with Bind AI & Cursor
 
-### Version 1.2 — Updated with Accurate Bind AI Features & Workflows
+### Version 1.2.1 — Updated with Automatic SQL Generation Examples
 
 ---
 
@@ -345,7 +345,7 @@ my-app/
 - **Supported AI Models:** Gemini 3.0 Pro, Gemini 2.5 Flash, Claude 4.5 Sonnet (selectable from model dropdown)
 - **Standout Features:**
   - Design-to-code: Upload images and get pixel-perfect React/Next.js code
-  - Built-in Supabase integration
+  - Built-in Supabase integration with automatic SQL generation
   - One-click Vercel deployment
   - GitHub import and push
   - Version history with automatic saves
@@ -353,7 +353,7 @@ my-app/
 ### 8.2 Bind AI Interface Overview
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  [Logo]  Project Name ▾  │  ◇ Editor  ◎ Preview  │  Discord  │ Deploy to Github │ Invite Team │ ↓ Download │ ◆ Deploy │
+│  [Logo]  Project Name ▾  │  ◇ Editor  ◎ Preview  │  Discord │ Deploy to Github │ Invite │ ↓ Download │ ◆ Deploy │
 ├─────────────┬───────────────────────────────────────────────────────┤
 │             │                                                       │
 │  Projects   │   Files Panel          Code Editor / Preview          │
@@ -370,6 +370,8 @@ my-app/
 │             │   🧑 You: prompt...                                   │
 │             │   🤖 Agent: response...                               │
 │             │                                                       │
+│             │   [Supabase Connection Box - when applicable]         │
+│             │                                                       │
 │             │   ┌─────────────────────────────────────────────┐     │
 │             │   │ 💬 Message input     [Model ▾] [Send →]     │     │
 │             │   └─────────────────────────────────────────────┘     │
@@ -383,20 +385,34 @@ Header Buttons (Top Right):
 - Deploy: One-click Vercel deployment
 ```
 
-### 8.3 Cursor — AI-Native Code Editor
+### 8.3 Bind AI's Automatic SQL Generation
+
+When you use the Full Stack Agent to create applications, Bind AI automatically:
+1. **Designs the database schema** based on your app description
+2. **Generates complete SQL scripts** including:
+   - Table creation with proper data types
+   - Primary and foreign key relationships
+   - Row Level Security (RLS) policies
+   - Indexes for performance
+3. **Provides the SQL in a copyable code block** in the chat
+4. **Explains what each part does** so you understand the structure
+
+**You don't need to know what tables or fields you need** — just describe your app and Bind AI figures out the data model.
+
+### 8.4 Cursor — AI-Native Code Editor
 - **What it is:** AI-native code editor (VS Code fork)
 - **Best for:** Editing existing code, refinement, complex logic
 - **Workflow:** Open project → Use Tab/Cmd+K/Composer
 - **Standout feature:** Understands your entire codebase
 
-### 8.4 Other Tools
+### 8.5 Other Tools
 - **Lovable:** UI-focused, design-heavy projects
 - **Replit:** Cloud IDE, great for learning
 - **v0 by Vercel:** Individual component generation
 - **Bolt.new:** Quick prototypes
 - **Claude/ChatGPT:** Code explanations, debugging help
 
-### 8.5 Strategic Tool Selection
+### 8.6 Strategic Tool Selection
 | Scenario | Recommended Tool |
 |----------|------------------|
 | Starting a new full-stack app | Bind AI (Full Stack Agent) |
@@ -408,11 +424,11 @@ Header Buttons (Top Right):
 | Understanding code | Claude/ChatGPT |
 | Importing & enhancing existing GitHub repos | Bind AI (GitHub Import) |
 
-### 8.6 The Recommended Workflow
+### 8.7 The Recommended Workflow
 ```
 1. Bind AI     → Generate initial application (Full Stack Agent)
                  OR Import existing repo from GitHub
-2. Supabase    → Connect database (via Bind AI integration)
+2. Supabase    → Connect credentials, run generated SQL
 3. Iterate     → Refine with AI chat in Bind AI
 4. GitHub      → Push changes via "Deploy to GitHub" button
 5. Cursor      → Clone locally for advanced refinement
@@ -436,7 +452,7 @@ Header Buttons (Top Right):
 ### 9.1 Getting Started with Bind AI
 
 #### Accessing Bind AI:
-1. Navigate to Bind AI IDE
+1. Navigate to Bind AI IDE (ide.getbind.co)
 2. Click **"Projects"** in the left sidebar
 3. Choose to create a new project or import from GitHub
 
@@ -502,13 +518,6 @@ I've uploaded my landing page designs. Please:
 Assemble the full landing page in the IDE environment.
 ```
 
-#### What Bind AI Generates:
-- High fidelity replication of your designs
-- Functional React components
-- Proper layout logic (flexbox, grid)
-- Complete project structure on left side of IDE
-- Live preview for immediate review
-
 ### 9.4 Iteration Prompts
 
 #### Improving the Hero:
@@ -520,15 +529,6 @@ Update the hero section:
 - Add a subtle background pattern or gradient
 ```
 
-#### Enhancing Visual Appeal:
-```
-Improve the visual design:
-- Add smooth scroll animations when sections come into view
-- Include hover effects on all interactive elements
-- Make the feature cards lift slightly on hover with shadow
-- Add icon animations on the How It Works section
-```
-
 #### Mobile Optimization:
 ```
 Ensure the page is fully responsive:
@@ -538,34 +538,7 @@ Ensure the page is fully responsive:
 - Ensure all tap targets are at least 44px
 ```
 
-### 9.5 Understanding What Was Generated
-
-#### Exploring the File Tree:
-After generation, look at the **Files panel** on the left side of the IDE:
-```
-FlowTask/
-├── app/
-│   ├── layout.tsx
-│   ├── page.tsx
-│   └── globals.css
-├── components/
-│   ├── Hero.tsx
-│   ├── Features.tsx
-│   ├── Pricing.tsx
-│   └── Footer.tsx
-├── public/
-│   └── assets/
-├── tailwind.config.ts
-└── package.json
-```
-
-#### Using the Editor:
-- Click any file in the Files panel to open it in the code editor
-- Use the **"Editor"** button in the top navigation to see code
-- Use the **"Preview"** button to see live rendering
-- Multiple files can be open as tabs
-
-### 9.6 Using Version History
+### 9.5 Using Version History
 
 #### Automatic Saving:
 - Bind AI **automatically saves** new versions when you make significant edits
@@ -577,700 +550,589 @@ FlowTask/
 2. Select the desired version from the dropdown
 3. Click "Revert" to restore that state
 
-#### Experimenting with Subversions:
-- When you continue working after reverting, Bind AI creates a **subversion**
-- Think of it as a branch for experimentation
-- Switch between subversions to compare approaches
-
 **Chapter Outcome:** A polished, responsive landing page running in the browser preview
 
 ---
 
-## Chapter 10: Project 2 — Adding a Database with Supabase
+## Chapter 10: Project 2 — Full-Stack App with Supabase
 
-**What We're Building:** Extending our landing page with a waitlist signup that stores data
+**What We're Building:** A complete e-commerce coffee store with products, user accounts, and checkout
 
-**Skills Practiced:** Supabase setup, Bind AI's Supabase integration, database schema
+**Skills Practiced:** Full Stack Agent, Supabase integration, automatic SQL generation
 
-### 10.1 Setting Up Supabase (External Setup)
+### 10.1 Using the Full Stack Agent
 
-#### Step-by-Step in Supabase Dashboard:
+The Full Stack Agent is designed to build complete applications automatically. You describe what you want, and it generates:
+- All frontend pages and components
+- Database schema and SQL
+- API connections
+- Authentication
+- Payment integration (Stripe)
+
+#### Switching to Full Stack Agent:
+1. In Bind AI IDE, look at the chat panel
+2. Click the **agent selector** (if visible) or the model dropdown
+3. Choose **"Full Stack Agent"**
+
+### 10.2 Generating a Complete Application
+
+#### Simple App Description Prompt:
+```
+Create a coffee e-commerce store with:
+- Product listings showing different coffee beans
+- User accounts for customers
+- Shopping cart functionality
+- Checkout flow with order confirmation
+```
+
+**What Happens:**
+1. Bind AI analyzes your requirements
+2. Automatically determines what database tables are needed
+3. Generates the complete application structure
+4. Provides SQL scripts for the database
+5. Creates all necessary pages, components, and API routes
+
+#### What Bind AI Automatically Generates:
+
+**Database Tables (you don't need to specify these):**
+- `products` — Coffee products with name, description, price, image
+- `users` — Customer accounts (via Supabase Auth)
+- `profiles` — Extended user information
+- `carts` — Shopping cart items
+- `orders` — Completed orders
+- `order_items` — Individual items in each order
+
+**Frontend Pages:**
+- Homepage with product grid
+- Product detail page
+- Shopping cart page
+- Checkout page
+- User account/profile page
+- Order history page
+
+**Authentication:**
+- Sign up / Login pages
+- Protected routes for checkout and account
+
+### 10.3 Setting Up Supabase
+
+#### Step 1: Create Supabase Project
 1. Go to [supabase.com](https://supabase.com) and log in
-2. Click **"Create a new project"**
-3. Enter project name (e.g., "flowtask-waitlist")
-4. Select your organization
-5. Set a **secure database password** (save this!)
-6. Choose the **closest region** to your users
-7. Wait for project setup to complete
+2. Click **"New Project"**
+3. Enter project name (e.g., "coffee-store")
+4. Set a **secure database password** (save this!)
+5. Choose the **closest region**
+6. Wait for project to initialize (1-2 minutes)
 
-#### Getting Your Credentials:
-1. Once project is ready, go to the dashboard
-2. Click **"Project Settings"** in the left sidebar
-3. Navigate to **"API"** section
-4. Copy these three values:
-   - **Project URL** — The unique address of your Supabase project
-   - **Anon Key** — Public API key (safe for frontend)
-   - **Service Role Key** — Secret key (server-side only, never expose!)
+#### Step 2: Get Your Credentials
+1. In Supabase dashboard, click **"Project Settings"** (gear icon in sidebar)
+2. Click **"API"** in the settings menu
+3. Copy these three values:
+   - **Project URL** (starts with `https://`)
+   - **anon public** key (under "Project API keys")
+   - **service_role** key (click "Reveal" to see it)
 
-### 10.2 Connecting Supabase in Bind AI
+### 10.4 Connecting Supabase in Bind AI
 
-#### Using Bind AI's Built-in Integration:
-1. In Bind AI IDE, scroll down in the interface to find **"Connect Supabase"** box
-2. Click **"Connect"**
-3. A popup appears asking for:
-   - Project URL
-   - Anon Key
-   - Service Role Key
-4. Paste each credential in the correct field (double-check!)
-5. Press Enter to confirm
+1. In Bind AI IDE, scroll down in the chat area
+2. Find the **"Connect Supabase"** box
+3. Click **"Connect"**
+4. A popup appears with three fields:
+   - **Project URL** — Paste your Supabase URL
+   - **Anon Key** — Paste the anon public key
+   - **Service Role Key** — Paste the service_role key
+5. Press **Enter** to confirm
+6. Wait for "Connected" confirmation
 
-#### What Happens:
-- Bind AI establishes secure connection to your Supabase project
-- Your project is now ready for backend operations
-- The Full Stack Agent can now generate database-connected features
+### 10.5 Running the Generated SQL
 
-### 10.3 Database Integration with Full Stack Agent
+After Bind AI generates your application, it provides SQL code in the chat. This SQL creates all the necessary database tables.
 
-#### Switch to Full Stack Agent:
-1. Open the **agent selector** in Bind AI
-2. Choose **"Full Stack Agent"**
-3. This agent automatically handles Next.js + Supabase + Stripe
+#### Example of Auto-Generated SQL:
 
-#### Database Setup Prompt:
+Bind AI will generate something like this (actual output varies):
+
+```sql
+-- Create products table
+CREATE TABLE public.products (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  name TEXT NOT NULL,
+  description TEXT,
+  price DECIMAL(10,2) NOT NULL,
+  image_url TEXT,
+  category TEXT,
+  stock_quantity INTEGER DEFAULT 0,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Create profiles table (extends auth.users)
+CREATE TABLE public.profiles (
+  id UUID REFERENCES auth.users(id) PRIMARY KEY,
+  full_name TEXT,
+  avatar_url TEXT,
+  shipping_address TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Create carts table
+CREATE TABLE public.carts (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_id UUID REFERENCES auth.users(id) NOT NULL,
+  product_id UUID REFERENCES public.products(id) NOT NULL,
+  quantity INTEGER DEFAULT 1,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  UNIQUE(user_id, product_id)
+);
+
+-- Create orders table
+CREATE TABLE public.orders (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_id UUID REFERENCES auth.users(id) NOT NULL,
+  status TEXT DEFAULT 'pending',
+  total_amount DECIMAL(10,2) NOT NULL,
+  shipping_address TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Create order_items table
+CREATE TABLE public.order_items (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  order_id UUID REFERENCES public.orders(id) NOT NULL,
+  product_id UUID REFERENCES public.products(id) NOT NULL,
+  quantity INTEGER NOT NULL,
+  price_at_time DECIMAL(10,2) NOT NULL
+);
+
+-- Enable Row Level Security
+ALTER TABLE public.products ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.carts ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.orders ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.order_items ENABLE ROW LEVEL SECURITY;
+
+-- RLS Policies for products (anyone can view)
+CREATE POLICY "Anyone can view products" ON public.products
+  FOR SELECT USING (true);
+
+-- RLS Policies for profiles
+CREATE POLICY "Users can view own profile" ON public.profiles
+  FOR SELECT USING (auth.uid() = id);
+
+CREATE POLICY "Users can update own profile" ON public.profiles
+  FOR UPDATE USING (auth.uid() = id);
+
+-- RLS Policies for carts
+CREATE POLICY "Users can manage own cart" ON public.carts
+  FOR ALL USING (auth.uid() = user_id);
+
+-- RLS Policies for orders
+CREATE POLICY "Users can view own orders" ON public.orders
+  FOR SELECT USING (auth.uid() = user_id);
+
+CREATE POLICY "Users can create own orders" ON public.orders
+  FOR INSERT WITH CHECK (auth.uid() = user_id);
+
+-- RLS Policies for order_items
+CREATE POLICY "Users can view own order items" ON public.order_items
+  FOR SELECT USING (
+    EXISTS (
+      SELECT 1 FROM public.orders
+      WHERE orders.id = order_items.order_id
+      AND orders.user_id = auth.uid()
+    )
+  );
+
+-- Create function to handle new user profiles
+CREATE OR REPLACE FUNCTION public.handle_new_user()
+RETURNS TRIGGER AS $$
+BEGIN
+  INSERT INTO public.profiles (id)
+  VALUES (NEW.id);
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Trigger to create profile on signup
+CREATE TRIGGER on_auth_user_created
+  AFTER INSERT ON auth.users
+  FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
 ```
-Add Supabase integration to save waitlist signups.
 
-Create a waitlist_signups table with:
-- id (UUID, primary key)
-- email (text, unique, required)
-- name (text, optional)
-- created_at (timestamp, default now)
+#### How to Run the SQL:
 
-Create a waitlist form component that:
-- Has email input with validation
-- Shows loading state while submitting
-- Shows success message after signup
-- Handles duplicate email errors gracefully
+1. **Copy** the entire SQL code block from Bind AI chat
+2. Go to **Supabase Dashboard**
+3. Click **"SQL Editor"** in the left sidebar
+4. Click **"New query"**
+5. **Paste** the SQL code
+6. Click **"Run"** (or press Cmd/Ctrl + Enter)
+7. Wait for "Success" message
 
-Replace the hero CTA with this inline email signup form.
-```
+#### Verify Tables Were Created:
+1. In Supabase, click **"Table Editor"** in sidebar
+2. You should see all your tables listed
+3. Click on any table to see its columns
 
-### 10.4 Running the SQL Schema
+**Important:** Without running this SQL, your application will not work. The frontend will try to save/read data but the tables won't exist.
 
-#### What Bind AI Generates:
-- SQL code block for creating the table
-- TypeScript types for the table
-- React component for the form
-- Supabase client configuration
-
-#### Executing SQL in Supabase:
-1. Copy the SQL code block from Bind AI
-2. Go to Supabase Dashboard → **SQL Editor**
-3. Paste the SQL code
-4. Click **"Run"**
-5. Go to **"Table Editor"** to verify your table exists
-
-**Important:** Without running the SQL, your backend won't know where to save data. Actions like signups won't be stored.
-
-### 10.5 Testing the Integration
+### 10.6 Testing the Application
 
 #### In Bind AI Preview:
-1. Click **"Preview"** button to see your app
-2. Enter a test email in the signup form
-3. Submit the form
+1. Click **"Preview"** button in top navigation
+2. Browse the store, view products
+3. Try signing up with a test email
+4. Add items to cart
+5. Go through checkout flow
 
-#### Verifying in Supabase:
-1. Go to Supabase Dashboard → **Table Editor**
-2. Select your `waitlist_signups` table
-3. You should see the email you just submitted
-4. **Success!** Your frontend and database are connected
+#### Verify in Supabase:
+1. After signup: Check **Authentication → Users**
+2. After adding to cart: Check **Table Editor → carts**
+3. After ordering: Check **Table Editor → orders**
 
-### 10.6 Follow-up Prompts
+### 10.7 Adding Features with Follow-up Prompts
 
-#### Adding a Simple Admin View:
+#### Adding Product Categories:
 ```
-Create an admin page at /admin/waitlist that:
-- Shows all waitlist signups in a table
-- Displays total count at the top
-- Allows searching by email
-- Sorts by most recent first
-- Is password-protected with a simple password check (password: "admin123")
-```
-
-#### Adding Email Field to Form:
-```
-Update the waitlist form to also collect:
-- Full name (optional)
-- Company name (optional)
-- How they heard about us (dropdown: Twitter, LinkedIn, Friend, Other)
-
-Update the database schema accordingly and provide the SQL.
+Add category filtering to the products page:
+- Show category tabs at the top (All, Light Roast, Medium Roast, Dark Roast, Decaf)
+- Filter products when clicking a category
+- Update the URL with the selected category
+- Show product count per category
 ```
 
-**Chapter Outcome:** Data persists in a real database, visible in Supabase dashboard
+#### Adding Search:
+```
+Add a search bar to find products:
+- Search input in the header
+- Search by product name and description
+- Show results as you type (debounced)
+- "No results found" state
+```
+
+#### Adding Reviews:
+```
+Add a product review system:
+- Users can leave star ratings (1-5) and text reviews
+- Show average rating on product cards
+- Display all reviews on product detail page
+- Users can only review products they've purchased
+
+Generate the SQL for the reviews table and update the UI.
+```
+
+**Bind AI will generate the additional SQL:**
+```sql
+-- Reviews table (auto-generated by Bind AI)
+CREATE TABLE public.reviews (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_id UUID REFERENCES auth.users(id) NOT NULL,
+  product_id UUID REFERENCES public.products(id) NOT NULL,
+  rating INTEGER CHECK (rating >= 1 AND rating <= 5) NOT NULL,
+  comment TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  UNIQUE(user_id, product_id)
+);
+
+ALTER TABLE public.reviews ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Anyone can view reviews" ON public.reviews
+  FOR SELECT USING (true);
+
+CREATE POLICY "Users can create reviews" ON public.reviews
+  FOR INSERT WITH CHECK (auth.uid() = user_id);
+
+CREATE POLICY "Users can update own reviews" ON public.reviews
+  FOR UPDATE USING (auth.uid() = user_id);
+```
+
+**Chapter Outcome:** A complete e-commerce application with database, auth, and all CRUD operations
 
 ---
 
-## Chapter 11: Project 3 — Adding User Authentication
+## Chapter 11: Project 3 — Task Management Application
 
-**What We're Building:** A protected dashboard area with user signup/login
+**What We're Building:** A Kanban-style task management app like Trello
 
-**Skills Practiced:** Authentication flow, protected routes, Supabase Auth
+**Skills Practiced:** Complex data relationships, real-time updates, drag-and-drop
 
-### 11.1 Authentication Setup with Full Stack Agent
+### 11.1 Generating the Task Manager
 
-#### Authentication Prompt:
+#### Prompt for Full Stack Agent:
 ```
-Add user authentication with Supabase Auth:
+Create a task management application called "TaskFlow" for teams to organize their work.
 
-1. Create auth pages:
-   - /login — Email/password login form
-   - /signup — Registration form with name, email, password
-   - /forgot-password — Password reset request
+Features needed:
+- Users can create multiple projects/boards
+- Each project has tasks organized in columns (To Do, In Progress, Done)
+- Tasks can be dragged between columns
+- Tasks have title, description, due date, and priority
+- Users can only see their own projects and tasks
 
-2. Create a protected /dashboard route that:
-   - Redirects to /login if not authenticated
-   - Shows user's email and a logout button
-   - Has a simple welcome message
-
-3. Add auth state management:
-   - Create an auth context/provider
-   - Add loading states during auth checks
-   - Handle session persistence
-
-4. Update the navigation:
-   - Show "Login" link when logged out
-   - Show "Dashboard" link when logged in
-   - Add user avatar/menu when logged in
-
-Use Supabase Auth helpers for Next.js.
+Make it look clean and modern like Notion or Linear.
 ```
 
-### 11.2 Testing Authentication
+### 11.2 Understanding the Auto-Generated Schema
 
-#### In Bind AI Preview:
-1. Navigate to /signup
-2. Register a new account with email and password
-3. Check Supabase Dashboard → **Authentication → Users**
-4. Your test user should appear instantly
+Bind AI will automatically design and generate SQL for tables like:
 
-#### Understanding What Happens:
-- Registration creates a user in Supabase's `auth.users` table
-- Login returns a secure session token (JWT)
-- The token keeps the user logged in across page refreshes
-- Supabase Auth API handles all the security
+```sql
+-- Projects/Boards table
+CREATE TABLE public.projects (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_id UUID REFERENCES auth.users(id) NOT NULL,
+  name TEXT NOT NULL,
+  description TEXT,
+  color TEXT DEFAULT '#6366f1',
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
 
-### 11.3 Social Login Prompt
+-- Tasks table
+CREATE TABLE public.tasks (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  project_id UUID REFERENCES public.projects(id) ON DELETE CASCADE NOT NULL,
+  title TEXT NOT NULL,
+  description TEXT,
+  status TEXT DEFAULT 'todo' CHECK (status IN ('todo', 'in_progress', 'done')),
+  priority TEXT DEFAULT 'medium' CHECK (priority IN ('low', 'medium', 'high')),
+  due_date DATE,
+  position INTEGER DEFAULT 0,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
 
-```
-Add "Sign in with Google" option:
+-- RLS Policies
+ALTER TABLE public.projects ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.tasks ENABLE ROW LEVEL SECURITY;
 
-1. Add a Google OAuth button on login and signup pages
-2. Add a divider with "or continue with email"
-3. Handle the OAuth callback properly
-4. Create user profile in database on first OAuth login
+-- Users can only access their own projects
+CREATE POLICY "Users can CRUD own projects" ON public.projects
+  FOR ALL USING (auth.uid() = user_id);
 
-Style the Google button with their brand colors and logo from lucide-react.
-```
-
-**Note:** You'll need to configure Google OAuth in Supabase Dashboard → Authentication → Providers
-
-### 11.4 Profile Management Prompt
-
-```
-Create a user profile system:
-
-1. Create a profiles table:
-   - id (references auth.users)
-   - full_name (text)
-   - avatar_url (text)
-   - updated_at (timestamp)
-
-2. Create /dashboard/settings page with:
-   - Profile picture upload (to Supabase Storage)
-   - Name editing
-   - Email display (read-only)
-   - Password change option
-
-3. Set up Row Level Security:
-   - Users can only read/update their own profile
-   - Profiles are created automatically on signup
-
-Provide the SQL for the table and RLS policies.
+-- Users can only access tasks in their own projects
+CREATE POLICY "Users can CRUD tasks in own projects" ON public.tasks
+  FOR ALL USING (
+    EXISTS (
+      SELECT 1 FROM public.projects
+      WHERE projects.id = tasks.project_id
+      AND projects.user_id = auth.uid()
+    )
+  );
 ```
 
-**Chapter Outcome:** Users can sign up, log in, and access protected pages
+### 11.3 Adding Real-Time Updates
+
+```
+Add real-time sync so when I update a task in one browser tab, it updates in another tab automatically.
+
+Use Supabase Realtime subscriptions to:
+- Listen for changes to tasks in the current project
+- Update the UI immediately when changes occur
+- Show a subtle "syncing" indicator when updates happen
+```
+
+### 11.4 Enhancement Prompts
+
+#### Quick Add Tasks:
+```
+Add inline task creation:
+- "+" button in each column header
+- Clicking opens a small form with just the title field
+- Press Enter to create the task
+- Task appears immediately at the top of the column
+- Cancel by pressing Escape or clicking outside
+```
+
+#### Task Details Modal:
+```
+When clicking a task card, show a detail modal with:
+- Editable title (click to edit)
+- Description with markdown support
+- Due date picker
+- Priority selector (Low, Medium, High with colors)
+- Delete button with confirmation
+- Auto-save changes after 500ms of no typing
+- Show "Saving..." indicator during save
+```
+
+#### Keyboard Shortcuts:
+```
+Add keyboard shortcuts:
+- "N" to create new task in first column
+- "E" to edit selected task
+- Arrow keys to navigate between tasks
+- "D" to mark as done
+- "Delete" to delete with confirmation
+- Show keyboard shortcut hints in the UI
+```
+
+**Chapter Outcome:** A fully functional task management app with real-time sync
 
 ---
 
-## Chapter 12: Project 4 — Full CRUD Application
-
-**What We're Building:** A task management app with full create, read, update, delete functionality
-
-**Skills Practiced:** Complex database relationships, real-time updates, advanced UI
-
-### 12.1 Full-Stack App Generation
-
-#### Using Full Stack Agent for Complete App:
-```
-Create a task management application called "TaskFlow" with:
-
-**Database Schema:**
-1. projects table:
-   - id (UUID)
-   - user_id (references auth.users)
-   - name (text)
-   - description (text, optional)
-   - color (text, for UI labels)
-   - created_at (timestamp)
-
-2. tasks table:
-   - id (UUID)
-   - project_id (references projects)
-   - title (text)
-   - description (text, optional)
-   - status (enum: 'todo', 'in_progress', 'done')
-   - priority (enum: 'low', 'medium', 'high')
-   - due_date (date, optional)
-   - created_at (timestamp)
-
-**Features:**
-- User authentication (already have this)
-- Dashboard showing all projects
-- Project view with Kanban-style task board (To Do, In Progress, Done columns)
-- Create, edit, delete projects and tasks
-- Drag and drop tasks between columns (or dropdown to change status)
-
-**Row Level Security:**
-- Users can only CRUD their own projects
-- Users can only CRUD tasks in their own projects
-
-Use Supabase for backend, Next.js App Router, Tailwind CSS, and shadcn/ui.
-```
-
-### 12.2 What Full Stack Agent Generates
-
-The Full Stack Agent automatically creates:
-- All necessary pages and routes
-- API endpoints/Server Actions
-- Database connection and queries
-- Authentication integration
-- Complete UI components
-- Proper file structure
-
-### 12.3 Running Database Migrations
-
-After generation, Bind AI provides SQL code. Execute it:
-
-1. Copy the SQL code block
-2. Supabase Dashboard → SQL Editor → Run
-3. Verify tables in Table Editor
-4. Check RLS policies are active
-
-### 12.4 Enhancement Prompts
-
-#### Adding Task Operations:
-```
-Enhance task functionality:
-
-1. Add inline quick-add for tasks:
-   - "+" button in each column header
-   - Opens small form with just title field
-   - Press Enter or click to create
-   - Task appears immediately (optimistic update)
-
-2. Task detail modal when clicking a card:
-   - Edit all fields inline
-   - Auto-save after 500ms debounce
-   - Show "Saving..." indicator
-   - Delete button with confirmation dialog
-
-3. Add toast notifications:
-   - "Task created" on success
-   - "Task updated" on save
-   - "Task deleted" on removal
-   - Error toasts for failures
-```
-
-#### Adding Search and Filters:
-```
-Add filtering and search to the task board:
-
-1. Search bar that filters tasks by title (real-time)
-2. Filter dropdown for priority (All, Low, Medium, High)
-3. Filter for status (All, To Do, In Progress, Done)
-4. Date filter (Overdue, Today, This Week, All)
-5. Show active filter count as badge
-6. "Clear all filters" button
-
-Keep filters in URL params so they persist on refresh.
-```
-
-#### Real-time Updates:
-```
-Add real-time sync so changes appear across tabs/devices:
-
-1. Subscribe to tasks table changes for current project
-2. Update local state when changes come from server
-3. Handle conflicts (server wins)
-4. Show subtle indicator when data syncs
-
-Use Supabase Realtime subscriptions.
-```
-
-**Chapter Outcome:** A fully functional task management app with real-time data sync
-
----
-
-## Chapter 13: Deployment — GitHub & Vercel
+## Chapter 12: Deployment — GitHub & Vercel
 
 **What We're Building:** Taking our app from development to production
 
 **Skills Practiced:** Version control, deployment, environment management
 
-### 13.1 Method 1: Deploy Directly to Vercel (Quickest)
+### 12.1 Method 1: Deploy Directly to Vercel (Quickest)
 
 #### Using Bind AI's Deploy Button:
 1. Click **"Deploy"** button in the top-right header
 2. A popup appears asking for:
    - Project name (becomes part of URL)
-   - Custom URL slug
+   - Custom URL slug (optional)
 3. Click **"Confirm"**
 4. Wait for build process (usually under 2 minutes)
 5. Click the deployment link when ready
 
 #### What You Get:
 - Live URL: `https://your-project.vercel.app`
-- Instant deployment with global CDN
-- Automatic HTTPS (secure connection)
-- Zero-configuration hosting
-- Built-in scaling for traffic spikes
+- Automatic HTTPS
+- Global CDN distribution
+- Auto-scaling
 
-**Important:** Make sure your Supabase credentials are connected before deploying!
+**Important:** Ensure Supabase is connected before deploying — credentials are passed to Vercel automatically.
 
-### 13.2 Method 2: Push to GitHub First
+### 12.2 Method 2: Push to GitHub
 
-#### Why Use GitHub?
-- Version history beyond Bind AI's 5 versions
-- Collaboration with team members
-- Backup of your code
-- CI/CD pipeline options
-- Professional workflow
-
-#### First-Time GitHub Setup in Bind AI:
+#### First-Time GitHub Setup:
 1. Click **"Deploy to GitHub"** in the top header
-2. If first time:
-   - Enter your **GitHub username**
-   - Enter your **Personal Access Token** (from GitHub Settings → Developer Settings)
-   - Bind AI will sync and fetch your repositories
-
-#### Importing Existing Repository (Alternative Start):
-1. Click **"Projects"** in left sidebar
-2. Select **"Import from GitHub"**
-3. Select repository from your list
-4. Choose branch (usually "main")
-5. Click **"Start Import"**
-6. Wait for import to complete (notification appears)
-
-### 13.3 GitHub Push Workflow
+2. Enter your **GitHub username**
+3. Enter your **Personal Access Token**:
+   - Go to GitHub → Settings → Developer settings → Personal access tokens
+   - Generate new token with `repo` scope
+   - Copy and paste into Bind AI
+4. Bind AI syncs your repositories
 
 #### Pushing Changes:
-1. Click **"Deploy to GitHub"** button
+1. Click **"Deploy to GitHub"**
 2. Select **"Push Changes"**
-3. **Enable Auto Push** (recommended):
-   - Toggle this ON
-   - Automatically pushes every time you accept AI changes
-   - Saves significant time
-4. Changes push to `bind-ai-staging` branch
+3. Enable **"Auto Push"** (recommended) — automatically pushes when you accept AI changes
+4. Changes go to `bind-ai-staging` branch
 
 #### Creating a Pull Request:
 1. Click **"Deploy to GitHub"**
 2. Select **"Create Pull Request"**
-3. PR gathers all Bind AI changes into one reviewable set
-4. Provides snapshot of what's about to be merged
-5. Allows inspection of diff
+3. PR contains all your changes for review
 
 #### Merging to Production:
 1. Click **"Deploy to GitHub"**
 2. Select **"Merge Pull Request"**
-3. Choose the most recent PR from Bind AI
-4. Select **"Merge and Deploy to Production"**
-5. This:
-   - Merges PR into production branch
-   - Triggers deployment
-   - Updates `bind-ai-prod` branch
+3. Choose **"Merge and Deploy to Production"**
+4. Changes merge to `bind-ai-prod` branch
 
-#### Verifying on GitHub:
-- Visit your GitHub repo page
-- Check `bind-ai-prod` branch for final code
-- File tree and commit history reflect all updates
+### 12.3 Downloading Your Project
 
-### 13.4 Downloading Your Project
-
-#### Using the Download Button:
 1. Click **"Download"** in the top header
 2. Wait for ZIP file to generate
-3. Extract to your local machine
-
-#### Why Download?
-- Work offline
-- Use advanced local tools (Cursor)
-- Install npm packages not available in browser
-- Full control over development environment
-
-### 13.5 Environment Variables for Production
-
-#### In Vercel Dashboard (if deploying separately):
-1. Go to Vercel → Your Project → Settings → Environment Variables
-2. Add required variables:
-```
-NEXT_PUBLIC_SUPABASE_URL=your-project-url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-```
-
-#### Through Bind AI Deploy:
-- If you connected Supabase in Bind AI, credentials are often auto-configured
-- Double-check in Vercel dashboard after deployment
+3. Extract to your local machine for:
+   - Local development
+   - Advanced Cursor editing
+   - Custom npm packages
+   - Git version control
 
 **Chapter Outcome:** Live application accessible via URL
 
 ---
 
-## Chapter 14: The Eject & Refine Workflow
+## Chapter 13: The Eject & Refine Workflow
 
 **What We're Building:** Setting up local development for advanced customization
 
 **Skills Practiced:** Local environment, Cursor IDE, code refinement
 
-### 14.1 When to Move Local
+### 13.1 When to Move Local
 
-#### Stay in Bind AI When:
-- Rapid prototyping and iteration
-- AI-heavy code generation
-- Quick fixes via chat
-- Design-to-code workflows
+**Stay in Bind AI for:**
+- Rapid prototyping
+- AI-heavy generation
+- Quick iterations
 - Deploying and testing
 
-#### Move to Local/Cursor When:
-- Installing specific npm packages
-- Complex debugging with dev tools
-- Using advanced Cursor AI features (MCP, codebase indexing)
-- Offline development
-- Team collaboration with Git
-- Performance profiling
+**Move to local/Cursor for:**
+- Specific npm packages
+- Complex debugging
+- Cursor's MCP features
+- Team Git workflow
 
-### 14.2 Local Environment Setup
+### 13.2 Local Setup
 
-#### Download from Bind AI:
-1. Click **"Download"** button
-2. Extract the ZIP file
-3. Open terminal in that folder
-
-#### Install and Run:
 ```bash
+# After downloading and extracting from Bind AI:
+cd your-project
+
 # Install dependencies
 npm install
 
-# Create local environment file
-cp .env.example .env.local
+# Create environment file
+touch .env.local
 
-# Add your Supabase credentials to .env.local
-# NEXT_PUBLIC_SUPABASE_URL=...
-# NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+# Add your Supabase credentials:
+# NEXT_PUBLIC_SUPABASE_URL=your-url
+# NEXT_PUBLIC_SUPABASE_ANON_KEY=your-key
 
 # Start development server
 npm run dev
 
-# Open browser to http://localhost:3000
+# Open http://localhost:3000
 ```
 
-### 14.3 Cursor AI Workflow
+### 13.3 Cursor AI Workflow
 
-#### Opening in Cursor:
-1. Open Cursor IDE
-2. File → Open Folder → Select your project
-3. Cursor indexes your codebase automatically
-
-#### Tab Completion:
-- Just start typing
-- Cursor suggests entire lines/functions
-- Press Tab to accept
-- Context-aware suggestions
-
-#### Inline Edits (Cmd+K / Ctrl+K):
-1. Select code you want to modify
-2. Press Cmd+K (Mac) or Ctrl+K (Windows)
-3. Type instruction: "add error handling" or "convert to TypeScript"
-4. Review and accept changes
-
-#### Composer Mode (Cmd+I / Ctrl+I):
-1. Press Cmd+I to open Composer panel
-2. Describe multi-file changes: "Add a notification system with toast messages"
-3. Cursor identifies all files needing changes
-4. Review each change before accepting
-
-### 14.4 Refinement Prompts for Cursor
-
-#### Code Quality:
-```
-Cmd+K on a component file:
-"Refactor this component to:
-- Extract reusable logic into custom hooks
-- Add proper TypeScript types
-- Add JSDoc comments for complex functions
-- Handle loading and error states properly"
-```
-
-#### Performance:
-```
-"Optimize this component:
-- Memoize expensive calculations with useMemo
-- Prevent unnecessary re-renders with React.memo
-- Add lazy loading for images
-- Implement pagination for the task list"
-```
-
-### 14.5 Syncing Changes Back
-
-After making local changes:
-
-```bash
-git add .
-git commit -m "Refactored task components for better performance"
-git push origin main
-```
-
-Vercel auto-deploys when you push to main!
+- **Tab** — Accept AI completions
+- **Cmd+K** — Inline edit selected code
+- **Cmd+I** — Composer for multi-file changes
 
 **Chapter Outcome:** Full local development environment with AI assistance
 
 ---
 
-## Chapter 15: Production Hardening
+## Chapter 14: Production Hardening
 
-**What We're Building:** Transforming our app into a production-ready product
+**What We're Building:** Making the app production-ready
 
 **Skills Practiced:** SEO, performance, security, error handling
 
-### 15.1 SEO Optimization Prompts (in Bind AI)
-
+### 14.1 SEO Prompt
 ```
-Add comprehensive SEO to the application:
-
-1. Metadata for all pages using Next.js Metadata API:
-   - Unique titles and descriptions per page
-   - OpenGraph images for social sharing
-   - Twitter card metadata
-   - Canonical URLs
-
-2. For the landing page, add:
-   - JSON-LD structured data (Organization schema)
-   - Proper heading hierarchy (single h1)
-   - Alt text for all images
-
-3. Create:
-   - /sitemap.xml (dynamic)
-   - /robots.txt
-
-Provide all necessary code changes.
+Add SEO optimization:
+- Metadata API for all pages
+- OpenGraph images
+- Dynamic sitemap
+- robots.txt
 ```
 
-### 15.2 Performance Optimization Prompts
-
+### 14.2 Performance Prompt
 ```
-Optimize the application for Core Web Vitals:
-
-1. Replace all <img> tags with next/image:
-   - Add proper width and height
-   - Use priority for above-fold images
-   - Add placeholder="blur" where appropriate
-
-2. Optimize fonts:
-   - Use next/font for custom fonts
-   - Subset to only used characters
-
-3. Add loading states:
-   - Suspense boundaries for async components
-   - Skeleton loaders for data fetching
-   - Loading.tsx files for route transitions
-
-4. Optimize bundle:
-   - Dynamic imports for heavy components
-   - Remove unused dependencies
+Optimize performance:
+- Replace <img> with next/image
+- Use next/font
+- Add loading states with Suspense
+- Lazy load heavy components
 ```
 
-### 15.3 Security Hardening Prompts
-
+### 14.3 Security Prompt
 ```
-Add production security measures:
-
-1. Create middleware.ts for route protection:
-   - Protect all /dashboard/* routes
-   - Redirect unauthenticated users to /login
-   - Handle session refresh
-
-2. Security headers:
-   - Content Security Policy
-   - X-Frame-Options
-   - X-Content-Type-Options
-
-3. Input validation:
-   - Validate all form inputs server-side
-   - Sanitize user-generated content
-   - Rate limiting on auth endpoints
-
-4. Review and update Supabase RLS policies:
-   - Ensure all tables have appropriate policies
-   - Test policies with different user scenarios
-
-Provide the middleware code and SQL for RLS.
+Add security measures:
+- Middleware for route protection
+- Validate all form inputs
+- Review RLS policies
+- Add rate limiting
 ```
 
-### 15.4 Error Handling Prompts
-
+### 14.4 Error Handling Prompt
 ```
-Add comprehensive error handling:
-
-1. Create app/error.tsx for global errors:
-   - User-friendly error message
-   - "Try again" button
-   - Link to go home
-   - Console logging for debugging
-
-2. Create app/not-found.tsx for 404 pages:
-   - Friendly message
-   - Search suggestion
-   - Link back to home
-
-3. Add error boundaries:
-   - Wrap key features (task board, project list)
-   - Graceful fallback UI
-   - Option to retry
-
-4. Toast notifications for user errors:
-   - Form validation errors
-   - Network failures
-   - Permission denied
+Add error handling:
+- Global error.tsx page
+- not-found.tsx for 404s
+- Toast notifications for errors
+- Error boundaries for key features
 ```
 
-### 15.5 Final Deployment with Version History
-
-#### Before Going Live:
-1. Test all user flows in Preview
-2. Check Supabase data is correct
-3. Verify authentication works
-
-#### Creating a Stable Version:
-1. Use Bind AI's Version History to mark current state
-2. Deploy this version to Vercel
-3. Any version or subversion can be deployed directly
-
-#### Post-Launch:
-- Monitor with Vercel Analytics
-- Watch Supabase logs for errors
-- Iterate based on user feedback
-
-**Chapter Outcome:** A production-ready application with proper SEO, security, and monitoring
+**Chapter Outcome:** Production-ready application
 
 ---
 
@@ -1280,393 +1142,39 @@ Add comprehensive error handling:
 
 ---
 
-## Chapter 16: Cursor Deep Dive
+## Chapter 15: Cursor Deep Dive & MCP
 
-### 16.1 Cursor Configuration
-
-#### Custom Rules File (.cursorrules):
-```
-Create this file in your project root:
-
-You are working on a Next.js 14 application with:
-- App Router
-- Supabase for backend
-- TypeScript strict mode
-- Tailwind CSS + shadcn/ui
-
-Guidelines:
-- Use Server Components by default
-- Add 'use client' only when necessary
-- Follow existing component patterns in /components
-- Use the Supabase client from lib/supabase.ts
-- Always handle loading and error states
-- Write concise, readable code
-```
-
-### 16.2 Codebase Indexing
-- How Cursor understands your project
-- Using @-mentions for specific files
-- Referencing documentation
-- Chat with your entire codebase
-
-### 16.3 Advanced Cursor Commands
-
-```
-Useful patterns:
-
-"Explain how authentication works in this codebase"
-
-"Find all places where we fetch tasks and ensure consistent error handling"
-
-"Create a new feature following the same pattern as the projects feature"
-
-"Refactor the dashboard to use the same data fetching pattern as the settings page"
-
-"What files would need to change to add a comments feature to tasks?"
-```
+### 15.1 Custom Rules (.cursorrules)
+### 15.2 GitHub MCP Setup and Prompts
+### 15.3 Figma MCP Setup and Prompts
 
 ---
 
-## Chapter 17: Model Context Protocol (MCP)
+## Chapter 16: The Complete Professional Workflow
 
-### 17.1 What is MCP?
-- Plugins for AI that connect to external tools
-- Read/write access to services like GitHub and Figma
-- The future of AI-assisted development
-
-### 17.2 GitHub MCP Setup
-
-```bash
-# Install GitHub MCP server
-npm install -g @modelcontextprotocol/server-github
-
-# Configure in Cursor settings with GitHub token
-```
-
-### 17.3 GitHub MCP Prompts
-
-```
-"Look at GitHub issue #15 and implement the feature request"
-
-"Review the open pull requests and summarize changes in each"
-
-"Create a new branch, implement the fix for issue #23, and prepare a PR description"
-
-"Check the recent commits and identify any potential bugs introduced"
-```
-
-### 17.4 Figma MCP Setup
-
-```bash
-# Install Figma MCP server
-npm install -g @anthropic/claude-figma-mcp
-
-# Configure with Figma personal access token
-```
-
-### 17.5 Figma MCP Prompts
-
-```
-"Look at the 'Dashboard Redesign' frame in Figma and update our dashboard to match"
-
-"Extract the Button component from Figma and create a matching React component"
-
-"Compare our current implementation with the Figma design and list discrepancies"
-
-"Implement the new card design from Figma for our task cards"
-```
-
----
-
-## Chapter 18: The Complete Professional Workflow
-
-### 18.1 Workflow Summary
-
-```
-📝 IDEATION
-└── Sketch ideas, define requirements
-
-🎨 DESIGN (Optional)
-└── Create/receive Figma designs
-    └── Export screenshots for Bind AI
-
-⚡ RAPID GENERATION (Bind AI)
-└── Upload designs OR describe in prompt
-└── Select AI model (Gemini 3.0 Pro for design-to-code)
-└── Use Full Stack Agent for complete apps
-└── Connect Supabase for backend
-└── Iterate via chat until 80% complete
-
-📦 VERSION CONTROL
-└── Enable Auto Push in Bind AI
-└── Changes go to bind-ai-staging branch
-└── Create PR for review
-└── Merge to bind-ai-prod
-
-🔧 REFINEMENT (Cursor)
-└── Download project or clone from GitHub
-└── Use Composer for complex changes
-└── Use MCP for external context
-└── Push changes back to GitHub
-
-🚀 DEPLOYMENT
-└── Deploy via Bind AI's Deploy button
-└── OR push to GitHub → auto-deploy on Vercel
-
-🔄 ITERATION
-└── Use Version History to experiment
-└── Deploy any version/subversion
-└── Repeat refinement and deployment
-```
-
-### 18.2 When to Use What
-
-| Task | Tool | Bind AI Feature |
-|------|------|-----------------|
-| New full-stack app | Bind AI | Full Stack Agent |
-| Design-to-code | Bind AI | Upload + Gemini 3.0 Pro |
-| Import existing repo | Bind AI | GitHub Import |
-| Connect database | Bind AI | Supabase Integration |
-| Push to GitHub | Bind AI | Deploy to GitHub button |
-| Deploy live | Bind AI | Deploy button |
-| Track changes | Bind AI | Version History |
-| Complex refactoring | Cursor | Composer mode |
-| Issue-based work | Cursor | GitHub MCP |
-| Design matching | Cursor | Figma MCP |
-
-### 18.3 Bind AI Quick Reference
-
-| Action | Location |
-|--------|----------|
-| Create project | Projects (left sidebar) |
-| Import from GitHub | Projects → Import from GitHub |
-| Upload designs | Upload (left sidebar) |
-| Change AI model | Model dropdown (bottom of chat) |
-| Switch agents | Agent selector (chat panel) |
-| View code | Editor button (top nav) |
-| Preview app | Preview button (top nav) |
-| Push to GitHub | Deploy to GitHub (top header) |
-| Download project | Download (top header) |
-| Deploy to Vercel | Deploy (top header) |
-| Version history | Version History (top of IDE) |
-| Connect Supabase | Scroll to "Connect Supabase" box |
-
-### 18.4 Common Pitfalls to Avoid
-
-- ❌ Not running SQL migrations in Supabase
-- ❌ Forgetting to connect Supabase credentials
-- ❌ Skipping Row Level Security setup
-- ❌ Not testing auth flow before deploying
-- ❌ Ignoring Bind AI's version history
-- ❌ Over-relying on AI for complex logic
-- ❌ Not understanding generated code structure
-
-### 18.5 The Vibe Coder's Checklist
-
-- [ ] I can explain what the generated code does
-- [ ] I've run all SQL migrations in Supabase
-- [ ] I've tested signup/login flow
-- [ ] Error states are handled gracefully
-- [ ] The app is responsive on mobile
-- [ ] RLS policies protect user data
-- [ ] I've saved a stable version in Version History
-- [ ] I know how to push to GitHub and deploy
+### 16.1 Workflow Summary
+### 16.2 When to Use What
+### 16.3 Bind AI Quick Reference
+### 16.4 Common Pitfalls
+### 16.5 The Vibe Coder's Checklist
 
 ---
 
 # APPENDIX
 
 ## A. Prompt Templates Library
-
-### Landing Page (Bind AI):
-```
-Create a landing page for [PRODUCT NAME] — [ONE-LINE DESCRIPTION].
-
-Target audience: [WHO]
-
-Sections: Hero, Features, How it Works, Pricing, FAQ, Footer
-
-Design: [STYLE DESCRIPTION]
-
-Use Next.js, Tailwind CSS, and shadcn/ui.
-```
-
-### Design-to-Code (Bind AI):
-```
-I've uploaded my design images. Please:
-
-1. Analyze the visual structure, layout, and styling
-2. Generate pixel-perfect React/Next.js code
-3. Use Tailwind CSS for styling
-4. Create complete project structure
-
-Replicate: [SPECIFIC ELEMENTS TO FOCUS ON]
-```
-
-### Full-Stack App (Bind AI Full Stack Agent):
-```
-Create a [APP TYPE] application called "[NAME]" with:
-
-**Database Schema:**
-[LIST TABLES AND RELATIONSHIPS]
-
-**Features:**
-[LIST KEY FEATURES]
-
-**User Authentication:** Yes/No
-
-Use Supabase for backend, Next.js App Router, Tailwind CSS.
-```
-
-### Adding Database (Bind AI):
-```
-Add Supabase integration for [FEATURE].
-
-Create [TABLE NAME] table with:
-[LIST COLUMNS AND TYPES]
-
-Create a component that:
-[DESCRIBE FUNCTIONALITY]
-
-Include Row Level Security for user data.
-Provide the SQL to run in Supabase.
-```
-
-### Adding Auth (Bind AI):
-```
-Add authentication using Supabase Auth:
-
-Pages needed: /login, /signup, /forgot-password
-Protected routes: [LIST ROUTES]
-Include: Loading states, error handling, session persistence
-
-Use Supabase Auth helpers for Next.js.
-```
-
-## B. Supabase SQL Templates
-
-### Basic Table with RLS:
-```sql
--- Create table
-CREATE TABLE public.items (
-  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  user_id UUID REFERENCES auth.users(id) NOT NULL,
-  name TEXT NOT NULL,
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
-
--- Enable RLS
-ALTER TABLE public.items ENABLE ROW LEVEL SECURITY;
-
--- Policy: Users can only see their own items
-CREATE POLICY "Users can view own items" ON public.items
-  FOR SELECT USING (auth.uid() = user_id);
-
--- Policy: Users can insert their own items
-CREATE POLICY "Users can insert own items" ON public.items
-  FOR INSERT WITH CHECK (auth.uid() = user_id);
-
--- Policy: Users can update their own items
-CREATE POLICY "Users can update own items" ON public.items
-  FOR UPDATE USING (auth.uid() = user_id);
-
--- Policy: Users can delete their own items
-CREATE POLICY "Users can delete own items" ON public.items
-  FOR DELETE USING (auth.uid() = user_id);
-```
-
-## C. Troubleshooting Common Issues
-
-### "Supabase connection failed"
-- Verify credentials in Bind AI's Supabase connection
-- Check Supabase project is not paused (free tier pauses after inactivity)
-- Ensure you copied the correct keys (URL, anon, service role)
-
-### "Database table not found"
-- Did you run the SQL migration in Supabase?
-- Check Table Editor in Supabase to verify table exists
-- Ensure RLS policies are set up correctly
-
-### "Authentication not working"
-- Check Supabase Auth settings (email enabled?)
-- Verify callback URLs if using OAuth
-- Test in Supabase Auth UI first
-
-### "Deploy failing"
-- Check for build errors in Vercel logs
-- Ensure all environment variables are set
-- Verify package.json has correct dependencies
-
-### "Changes not pushing to GitHub"
-- Re-enter GitHub token if expired
-- Check you have write access to the repository
-- Try refreshing the repository list
-
-## D. Glossary
-
-- **Anon Key:** Supabase public API key, safe for frontend use
-- **Auto Push:** Bind AI feature that automatically pushes changes to GitHub
-- **bind-ai-staging:** GitHub branch where Bind AI pushes changes
-- **bind-ai-prod:** GitHub branch for merged/production code
-- **Full Stack Agent:** Bind AI agent that generates complete apps with backend
-- **RLS (Row Level Security):** Database-level access control in Supabase
-- **Service Role Key:** Supabase secret key for server-only operations
-- **Version History:** Bind AI feature tracking last 5 project versions
-- **Subversion:** Branch-like experimental version in Bind AI
-
-## E. Resource Links
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Supabase Documentation](https://supabase.com/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [shadcn/ui Components](https://ui.shadcn.com)
-- [Vercel Documentation](https://vercel.com/docs)
-- [Bind AI YouTube Tutorials](https://www.youtube.com/@bindai)
+## B. Troubleshooting Common Issues
+## C. Glossary
+## D. Resource Links
 
 ---
 
 ## Version History
 
-### v1.2 Changes from v1.1:
-1. **Updated Bind AI sections with actual features:**
-   - Full Stack Agent description and usage
-   - Coding Agent for 70+ languages
-   - Model selection (Gemini 3.0 Pro, Gemini 2.5 Flash, Claude 4.5 Sonnet)
-   
-2. **Added Bind AI Interface Overview:**
-   - Visual diagram of IDE layout
-   - Location of all buttons and panels
-   - Quick reference table for actions
-
-3. **Corrected GitHub workflow:**
-   - GitHub Import feature for existing repos
-   - Deploy to GitHub button workflow
-   - Auto Push toggle
-   - bind-ai-staging and bind-ai-prod branches
-   - Pull Request creation and merging
-
-4. **Added Supabase Integration section:**
-   - Exact steps to connect Supabase in Bind AI
-   - Three credentials explained (URL, anon key, service role key)
-   - SQL execution workflow
-
-5. **Added Design-to-Code workflow:**
-   - Upload button usage
-   - Model selection for best results
-   - What Bind AI generates from designs
-
-6. **Added Version History feature:**
-   - Automatic saving (last 5 versions)
-   - Reverting to previous versions
-   - Subversions for experimentation
-   - Deploying specific versions
-
-7. **Updated deployment section:**
-   - Direct Deploy button usage
-   - GitHub push workflow
-   - PR creation and merging
-   - Download button for local work
-
-8. **Added Bind AI Quick Reference table**
-9. **Updated troubleshooting for Bind AI-specific issues**
-10. **Added Bind AI-specific glossary terms**
+### v1.2.1 Changes from v1.2:
+1. **Added automatic SQL generation explanation** — Clarified that Bind AI automatically designs database schema
+2. **Added example of auto-generated SQL** — Full coffee store schema example
+3. **Reorganized Phase 3** — Changed from waitlist → auth → CRUD to Full Stack Agent flow
+4. **Emphasized "you don't need to know tables"** — Multiple mentions that Bind AI figures out the data model
+5. **Added follow-up prompts with SQL** — Shows how Bind AI generates additional SQL for new features
+6. **Simplified chapters** — Condensed for clearer flow while maintaining detail
